@@ -21,6 +21,14 @@ class AccueilDAO extends DAO
         return $lesCategories;
     }
 
+    public function getCategorieById($idCat)
+    {
+        //On sélectionne une categorie par son id.
+        $maCategorie = DB::table('categorie')->where('idCat', '=', $idCat)->first();
+        $categorie = $this->creerObjetMetier($maCategorie);
+        return $categorie;
+    }
+
     protected function creerObjetMetier(\stdClass $objet)
     {
         $laCategorie = new Categorie();

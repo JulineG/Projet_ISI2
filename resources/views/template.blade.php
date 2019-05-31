@@ -17,13 +17,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil
+                    <a class="nav-link" href="/">Accueil
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 @foreach($lesCategories as $categories)
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">{{{$categories->getNomCat()}}}
+                        <a class="nav-link" href="{{url('Produit/'.$categories->getIdCat())}}">{{{$categories->getNomCat()}}}
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>

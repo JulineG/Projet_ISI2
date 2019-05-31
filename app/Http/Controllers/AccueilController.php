@@ -13,4 +13,5 @@ class AccueilController extends Controller
         $lesCategories = $categorie->getLesCategories();
         return view('accueil',compact('lesCategories'));
     }
+
 }
