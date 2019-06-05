@@ -19,5 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('Produit/{id}','ProduitController@getProduits');
+Route::get('Panier','PanierController@getPanier');
+Route::post('AjoutPanier/{id}', 'PanierController@ajouterPanier');
+Route::post('SupprimerPanier/{id}', 'PanierController@supprimerPanier');
+
 
 

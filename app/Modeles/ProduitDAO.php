@@ -20,6 +20,14 @@ class ProduitDAO extends Model
         return $lesProduits;
     }
 
+    public function getUnProduit($id)
+    {
+        $produit = DB::table('produit')->where('idProduit', '=', $id)->first();
+        $leProduit= $this->creerObjetMetier($produit);
+
+        return $leProduit;
+    }
+
 
     protected function creerObjetMetier(\stdClass $objet)
     {
