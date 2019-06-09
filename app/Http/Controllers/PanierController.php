@@ -42,11 +42,10 @@ class PanierController extends Controller
         return view('accueil', compact('lesCategories'));
     }
 
-    function getPanier(){
+    static function getContenuPanier(){
         $lesProduits=array();
         $quantite = array();
         $lePanier=array();
-        $prixTotal=0;
         $indice = 0;
         $produit = new ProduitDAO();
         if(Session::has('panier')){
@@ -55,14 +54,23 @@ class PanierController extends Controller
                 $idprod=$unProduit[0];
                 $lesProduits[$indice]=$produit->getUnProduit($idprod);
                 $quantite[$indice]=$unProduit[1];
-                $prixTotal += $lesProduits[$indice]->getPrix()*$quantite[$indice];
                 $lePanier[] = array($lesProduits[$indice],$quantite[$indice]);
                 $indice++;
             }
         }
+        return $lePanier;
+
+    }
+
+    function getPanier(){
+        $lePanier = $this->getContenuPanier();
+        $prixTotal=0;
+        foreach ($lePanier as $panier){
+            $prixTotal  += $panier[0]->getPrix()*$panier[1];
+        }
         $categorie = new AccueilDAO();
         $lesCategories = $categorie->getLesCategories();
-        return view('panier', compact('quantite','lePanier','prixTotal','lesProduits', 'lesCategories'));
+        return view('panier', compact('lePanier','prixTotal', 'lesCategories'));
     }
 
     function supprimerPanier($id){

@@ -22,6 +22,6 @@ Route::get('Produit/{id}','ProduitController@getProduits');
 Route::get('Panier','PanierController@getPanier');
 Route::post('AjoutPanier/{id}', 'PanierController@ajouterPanier');
 Route::post('SupprimerPanier/{id}', 'PanierController@supprimerPanier');
-
-
+Route::post('Commande', 'CommandeController@checkAuth');
+Route::get('infosCommande','CommandeController@getInfos');
 

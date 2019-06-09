@@ -36,7 +36,9 @@
             @endforeach
             </table>
             <p>Prix Total : {{$prixTotal}}€</p>
-
+            {!! Form::open(['url' => 'Commande']) !!}
+            {!! Form::submit('Valider mon panier', ['class' => 'btn btn-info pull-right']) !!}
+            {!! Form::close() !!}
         @else
             <p>Votre panier est vide !</p>
         @endif

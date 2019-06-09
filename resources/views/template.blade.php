@@ -57,7 +57,9 @@
                         </a>
                         <div class="dropdown-menu">
                             <a href="{{ route('login') }}">Se Connecter</a>
+                            <a href="{{ route('register') }}">S'inscrire</a>
                         </div>
+
                     </li>
                 @endauth
 
