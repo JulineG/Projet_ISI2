@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 03 juin 2019 à 11:07
+-- Généré le :  mer. 12 juin 2019 à 14:21
 -- Version du serveur :  10.1.37-MariaDB
 -- Version de PHP :  7.2.12
 
@@ -41,6 +41,18 @@ INSERT INTO `categorie` (`idCat`, `nomCat`) VALUES
 (1, 'Entrées'),
 (2, 'Plats'),
 (3, 'Desserts');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande`
+--
+
+CREATE TABLE `commande` (
+  `idCommande` int(11) NOT NULL,
+  `idClient` int(11) NOT NULL,
+  `dateCommande` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,7 +106,21 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`idProduit`, `idCat`, `nomProduit`, `description`, `prix`, `image`) VALUES
-(1, 1, 'Salade', 'Salade verte, tomates, oeufs', 9, 'salade.jpg');
+(1, 1, 'Salade', 'Salade verte, tomates, oeufs', 9, 'salade.jpg'),
+(2, 3, 'Tarte aux fraises', 'Tarte aux fraises accompagnée d\'une boule de glace vanille.', 6, 'tarte_fraises.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produitscommande`
+--
+
+CREATE TABLE `produitscommande` (
+  `id` int(11) NOT NULL,
+  `idCommande` int(11) NOT NULL,
+  `idProduit` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -114,7 +140,7 @@ CREATE TABLE `users` (
   `email` varchar(50) CHARACTER SET latin1 NOT NULL,
   `updated_at` date NOT NULL,
   `created_at` date NOT NULL,
-  `remember_token` varchar(250) NOT NULL
+  `remember_token` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -122,7 +148,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `firstname`, `password`, `address`, `city`, `postcode`, `phone`, `email`, `updated_at`, `created_at`, `remember_token`) VALUES
-(1, 'Gabrovec', 'Juline', '$2y$10$zQOI3I7chw/Prxa/etFAueQIy30HkpqyfesSwScDfQmLYo9VXOiYq', 'vbzuvbi', 'czdebfyez', '78963', '7896324510', 'juline191@gmail.com', '2019-05-29', '2019-05-29', '');
+(1, 'Gabrovec', 'Juline', '$2y$10$zQOI3I7chw/Prxa/etFAueQIy30HkpqyfesSwScDfQmLYo9VXOiYq', 'vbzuvbi', 'czdebfyez', '78963', '7896324510', 'juline191@gmail.com', '2019-05-29', '2019-05-29', ''),
+(2, 'toto', 'titi', '$2y$10$P/Gqz0dRVFCHUazUDf9oL.FxFcXjfCEPy6TE71yTw958THJVQ72WK', 'trehgtrhh', 'trhytjtuj', '78965', '7896541235', 'toto.titi@gmail.com', '2019-06-07', '2019-06-07', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -133,6 +160,13 @@ INSERT INTO `users` (`id`, `name`, `firstname`, `password`, `address`, `city`, `
 --
 ALTER TABLE `categorie`
   ADD PRIMARY KEY (`idCat`);
+
+--
+-- Index pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`idCommande`),
+  ADD KEY `client` (`idClient`);
 
 --
 -- Index pour la table `login`
@@ -147,6 +181,14 @@ ALTER TABLE `login`
 ALTER TABLE `produit`
   ADD PRIMARY KEY (`idProduit`),
   ADD KEY `idCat` (`idCat`);
+
+--
+-- Index pour la table `produitscommande`
+--
+ALTER TABLE `produitscommande`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `commande` (`idCommande`),
+  ADD KEY `produit` (`idProduit`);
 
 --
 -- Index pour la table `users`
@@ -165,6 +207,12 @@ ALTER TABLE `categorie`
   MODIFY `idCat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT pour la table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `login`
 --
 ALTER TABLE `login`
@@ -174,23 +222,42 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `produitscommande`
+--
+ALTER TABLE `produitscommande`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `client` FOREIGN KEY (`idClient`) REFERENCES `users` (`id`);
+
+--
 -- Contraintes pour la table `login`
 --
 ALTER TABLE `login`
   ADD CONSTRAINT `idClient` FOREIGN KEY (`idClient`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `produitscommande`
+--
+ALTER TABLE `produitscommande`
+  ADD CONSTRAINT `commande` FOREIGN KEY (`idCommande`) REFERENCES `commande` (`idCommande`),
+  ADD CONSTRAINT `produit` FOREIGN KEY (`idProduit`) REFERENCES `produit` (`idProduit`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
