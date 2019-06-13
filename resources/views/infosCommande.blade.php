@@ -37,7 +37,7 @@
                     </td>
                     <td>
                         <p><b>Sélectionner un moyen de paiement</b></p>
-                        {!! Form::open(['url' => 'Commande']) !!}
+                        {!! Form::open(['url' =>'ajoutCommande']) !!}
                         {!! Form::radio('paiement', 'espece' , true)!!}
                         {!! Form::label('paiement', 'Espèce') !!}
                         <br />

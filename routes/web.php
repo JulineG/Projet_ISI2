@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/','AccueilController@getCategories');
 
 
@@ -24,4 +25,6 @@ Route::post('AjoutPanier/{id}', 'PanierController@ajouterPanier');
 Route::post('SupprimerPanier/{id}', 'PanierController@supprimerPanier');
 Route::post('Commande', 'CommandeController@checkAuth');
 Route::get('infosCommande','CommandeController@getInfos');
+Route::get('connexion', 'CommandeController@identification');
+Route::post('ajoutCommande','CommandeController@ajoutCommande');
 

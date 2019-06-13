@@ -1,14 +1,12 @@
 @extends('template')
 
 @section('titrePage')
-    Accueil
+    Confirmation Commande
 @endsection
 
 @section('titreItem')
-    <h1>Accueil</h1>
+    <h1>Confirmation de votre commande !</h1>
 @endsection
 
 @section('contenu')
-    <p>{{$id=\Illuminate\Support\Facades\Session::get('id')}}</p>
-    <p>Bienvenue !</p>
 @endsection
