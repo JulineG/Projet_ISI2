@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link href="http://fr.allfont.net/allfont.css?fonts=economica" rel="stylesheet"/>
-    <link href="lib/bootstrap/fontawesome/css/all.css" rel="stylesheet"/>
+    {!! Html::style('lib/bootstrap/fontawesome/css/all.css') !!}
     {!! Html::style('lib/bootstrap/bootstrap.min.css') !!}
     {!! Html::style('css/isi2.css') !!}
 
@@ -14,7 +14,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="lib/bootstrap/images/logo.png" alt="Notre logo" style="width:15%;">
+            <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:15%;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -89,13 +89,8 @@
 </body>
 <footer>
     <div class="container">
-
-        <p>Contactez-nous sur :
-            <i class="fab fa-facebook-square"></i>
-        </p>
-        <p> Suivez-nous sur :
-            <i class="fab fa-instagram"></i>
-        </p>
+        <p>Contactez-nous sur : <span class="fab fa-facebook-square"></span></p>
+        <p>Suivez-nous sur : <span class="fab fa-instagram"></span></p>
     </div>
 </footer>
 </html>

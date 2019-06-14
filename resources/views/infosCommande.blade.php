@@ -15,7 +15,7 @@
 
                 <tr>
                     <td>
-                        {{ Html::image('http://127.0.0.1/juline/Projet_ISI2/images/'.$produit[0]->getImage(), 'Image Produit', array('id' => 'produit')) }}
+                        {{ Html::image('http://127.0.0.1/Projet_ISI2/images/'.$produit[0]->getImage(), 'Image Produit', array('id' => 'produit')) }}
                     </td>
                     <td >
                         <p id="nomProduit"><b>{{$produit[0]->getNomProduit()}}</b></p>
@@ -51,7 +51,6 @@
 
         {!! Form::submit('Valider ma commande', ['class' => 'btn btn-info pull-right']) !!}
         {!! Form::close() !!}
-
-
-
 @endsection
+
+

@@ -14,3 +14,4 @@
         Nous travaillons avec des producteurs en circuits courts afin de limiter notre impact sur l'environnement.
         Vous pouvez dès à présent passer votre commande. Nous garantissons une livraison de produits frais et de bonne qualité !</p>
 @endsection
+
