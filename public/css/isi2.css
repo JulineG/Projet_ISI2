@@ -1,13 +1,28 @@
+ @import url(http://fr.allfont.net/allfont.css?fonts=economica);
 
-.footer {
-    border-top: 10px solid #ccc;
-    padding-top: 10px;
-    text-align: center;
+
+body
+{
+    background-color:#F2FEF7;
+    color:#E0296E;
+    font-family: 'Economica', arial, Times new roman;
+    margin-top: 20px;
+}
+
+.navbar {
+	 font-family: 'Economica', arial, Times new roman;
+}
+
+[class*="col"] {
+	margin-bottom: 20px;
+}
+
+img {
+	width:100%;
+}
+
+.navbar.navbar-expand-lg.navbar_text.static-top {
+	color:#E0296E !important;
 }
 
 
-
-#produit {
-    width: 150px;
-    height: 150px;
-}

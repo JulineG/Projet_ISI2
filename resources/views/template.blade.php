@@ -2,15 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
+    <link href="http://fr.allfont.net/allfont.css?fonts=economica" rel="stylesheet"/>
+    <link href="lib/bootstrap/fontawesome/css/all.css" rel="stylesheet"/>
     {!! Html::style('lib/bootstrap/bootstrap.min.css') !!}
     {!! Html::style('css/isi2.css') !!}
+
     <title>@yield('titrePage')</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-text static-top">
     <div class="container">
 
-        <a class="navbar-brand" href="{{url('/')}}">La Table Enchantée</a>
+        <a class="navbar-brand" href="{{url('/')}}">
+            <img src="lib/bootstrap/images/logo.png" alt="Notre logo" style="width:15%;">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -69,13 +74,28 @@
     </div>
 </nav>
 <header>
-    <h1>@yield('titreItem')</h1>
+    <div class="container">
+        <h1>@yield('titreItem')</h1>
+    </div>
 </header>
-@yield('contenu')
+    <div class ="container">
+        @yield('contenu')
+        {!! Html::script('lib/jquery/jquery-3.4.1.min.js') !!}
+        {!! Html::script('lib/js/bootstrap.bundle.js') !!}
+        {!! Html::script('lib/js/bootstrap.js') !!}
+        {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')!!}
+    </div>
 
-{!! Html::script('lib/jquery/jquery-3.4.1.min.js') !!}
-{!! Html::script('lib/js/bootstrap.bundle.js') !!}
-{!! Html::script('lib/js/bootstrap.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')!!}
 </body>
+<footer>
+    <div class="container">
+
+        <p>Contactez-nous sur :
+            <i class="fab fa-facebook-square"></i>
+        </p>
+        <p> Suivez-nous sur :
+            <i class="fab fa-instagram"></i>
+        </p>
+    </div>
+</footer>
 </html>
