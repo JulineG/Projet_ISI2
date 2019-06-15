@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <link href="http://fr.allfont.net/allfont.css?fonts=economica" rel="stylesheet"/>
     {!! Html::style('lib/bootstrap/fontawesome/css/all.css') !!}
     {!! Html::style('lib/bootstrap/bootstrap.min.css') !!}
     {!! Html::style('css/isi2.css') !!}
@@ -10,11 +9,11 @@
     <title>@yield('titrePage')</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-text static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png);">
     <div class="container">
 
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:15%;">
+            <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:20%;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -3,8 +3,8 @@
 
 body
 {
-    background-color:#F2FEF7;
-    color:#E0296E;
+    background-color:#FFFBE9;
+    color:#FFA500;
     font-family: 'Economica', arial, Times new roman;
     margin-top: 20px;
 }
@@ -22,5 +22,16 @@ img {
 }
 
 .nav-link {
-	color:#E0296E !important;
+	color:#FFF0AD !important;
+	font-size:25px;
+}
+
+.btn-primary {
+	background-color:#FFA500 !important;
+	color:#FFF0AD !important;
+	border:none;
+}
+
+.btn-link {
+	color:#FFA500 !important;
 }

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>La Table enchantée</title>
+    <title>Juline et Pauline</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,13 +18,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/isi2.css') }}" rel="stylesheet">
+    <link href="{{asset ('lib/bootstrap/fontawesome/css/all.css')}}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png)">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    La table enchantée
+                    <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:20%;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -77,4 +80,10 @@
         </main>
     </div>
 </body>
+<footer>
+    <div class="container">
+        <p>Contactez-nous sur : <span class="fab fa-facebook-square"></span></p>
+        <p>Suivez-nous sur : <span class="fab fa-instagram"></span></p>
+    </div>
+</footer>
 </html>
