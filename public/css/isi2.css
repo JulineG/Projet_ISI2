@@ -6,8 +6,8 @@ body
     background-color:#FFFBE9;
     color:#FFA500;
     font-family: 'Economica', arial, Times new roman;
-    font-size:15px;
-    text-align:justify;
+    font-size:20px;
+    text-align:justify !important;
     margin-top: 20px;
 }
 

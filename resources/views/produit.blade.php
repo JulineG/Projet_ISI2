@@ -9,30 +9,30 @@
 @endsection
 
 @section('contenu')
-    <div class="col-md-12">
+    <div class ="container container-fluid">
+
         @foreach($lesProduits as $produit)
-        <div class="row">
-            {!! Form::open(['url' => 'AjoutPanier/'.$produit->getIdProduit()]) !!}
-            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-2" >
-                {{ Html::image('http://127.0.0.1/Projet_ISI2/images/'.$produit->getImage(), 'Image Produit', array('id' => 'produit')) }}
+            <div class="row">
+                {!! Form::open(['url' => 'AjoutPanier/'.$produit->getIdProduit()]) !!}
+                <div class="col" >
+                    {{ Html::image('http://127.0.0.1/Projet_ISI2/images/'.$produit->getImage(), 'Image Produit', array('id' => 'produit')) }}
+                </div>
+                <div class="col" >
+                    <p id="nomProduit"><b>{{{$produit->getNomProduit()}}}</b></p>
+                    <p>{{{$produit->getDescription()}}}</p>
+                    <p>Prix: {{{$produit->getPrix()}}}€</p>
+                </div>
+                <div class="col" >
+                    {!! Form::label('qty', 'Quantité : ') !!}
+                    {!! Form::number('qty', '1', ['min'=>'1','max'=>'10']) !!}
+                </div>
+                <div class="col" >
+                    {!! Form::submit('Valider', ['class' => 'btn btn-info pull-right']) !!}
+                </div>
+                {!! Form::close() !!}
             </div>
-            <div class="col-lg-4 col-md-3 col-sm-2 col-xs-2 produits" >
-                <p id="nomProduit"><b>{{{$produit->getNomProduit()}}}</b></p>
-                <p>{{{$produit->getDescription()}}}</p>
-                <p>Prix: {{{$produit->getPrix()}}}€</p>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-1 col-xs-1" >
-                {!! Form::label('qty', 'Quantité : ') !!}
-                {!! Form::number('qty', '1', ['min'=>'1','max'=>'10']) !!}
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-2 col-xs-1" >
-                {!! Form::submit('Valider', ['class' => 'btn btn-info pull-right']) !!}
-            </div>
-            {!! Form::close() !!}
-        </div>
-
-
         @endforeach
+
     </div>
 @endsection
 

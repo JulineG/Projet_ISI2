@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png);">
-    <div class="container">
+    <div class="container container-fluid">
 
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:20%;">
@@ -73,21 +73,18 @@
     </div>
 </nav>
 <header>
-    <div class="container">
+    <div class="container container-fluid">
         <h1>@yield('titreItem')</h1>
     </div>
 </header>
-    <div class ="container">
-        @yield('contenu')
-        {!! Html::script('lib/jquery/jquery-3.4.1.min.js') !!}
-        {!! Html::script('lib/js/bootstrap.bundle.js') !!}
-        {!! Html::script('lib/js/bootstrap.js') !!}
-        {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')!!}
-    </div>
-
+    @yield('contenu')
+    {!! Html::script('lib/jquery/jquery-3.4.1.min.js') !!}
+    {!! Html::script('lib/js/bootstrap.bundle.js') !!}
+    {!! Html::script('lib/js/bootstrap.js') !!}
+    {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')!!}
 </body>
 <footer>
-    <div class="container">
+    <div class="container container-fluid">
         <p>Contactez-nous sur : <span class="fab fa-facebook-square"></span></p>
         <p>Suivez-nous sur : <span class="fab fa-instagram"></span></p>
     </div>
