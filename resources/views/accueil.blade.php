@@ -9,9 +9,11 @@
 @endsection
 
 @section('contenu')
-    <p>Juline et Pauline vous souhaitent la bienvenue sur le site !
-    Vous pourrez trouver tous nos plats faits maison à partir de produits frais et de saison. Nous travaillons avec des producteurs en circuits courts afin de limiter notre impact sur l'environnement.
-        Vous pouvez dès à présent passer votre commande. Nous garantissons une livraison de produits frais et de bonne qualité !</p>
+    <h3>Juline et Pauline vous souhaitent la bienvenue sur le site !</h3>
+        <p>Peut-être connaissez vous déjà notre restaurant à Lyon situé rue Mercière ? Si oui, vous pouvez dès à présent profiter de nos produits aussi en livraison à domicile.
+        Si vous avez atterri ici par hasard, une présentation s'impose. Nous sommes Juline et Pauline, deux jeunes entrepreneurses passionnées de cuisine et de bons produits.
+            Nous avons ouvert notre établissement en mai 2018 dont le concept est de proposer des plats rustiques ou classiques de la gastronomie française de façon moderne.
+        Dans une démarche de développement durable</p>
     <p>{{$id=\Illuminate\Support\Facades\Session::get('id')}}</p>
 @endsection
 

@@ -6,6 +6,8 @@ body
     background-color:#FFFBE9;
     color:#FFA500;
     font-family: 'Economica', arial, Times new roman;
+    font-size:15px;
+    text-align:justify;
     margin-top: 20px;
 }
 
@@ -34,4 +36,18 @@ img {
 
 .btn-link {
 	color:#FFA500 !important;
+}
+
+
+.card-body {
+	background-color:#FFF1E9;
+}
+
+.card {
+	border-color:#FFA500 !important; 
+}
+
+.card-header {
+	border-color:#FFA500 !important;
+	background-color:#FFF1E9 !important;
 }
