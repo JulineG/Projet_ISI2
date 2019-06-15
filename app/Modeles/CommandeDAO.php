@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class CommandeDAO extends DAO
 {
-    public function creationCommande(Commande $produitCommande, Commande $uneCommande ){
+    public function creationCommande($produitsCommande, $uneCommande ){
         DB::table('commande')->insert(['idClient'=>$uneCommande->getIdClient(),'dateCommande'=>$uneCommande->getDateCommande()]);
         $lastCommande = DB::table('commande')->orderBy('idCommande')->first();
         $idCommande=$lastCommande->idCommande;
-        DB::table('produitCommande')->insert(['idCommande'=>$idCommande,'idProduit'=>$produitCommande->getIdProduit(),'quantite'=>$produitCommande->getQuantite()]);
+        foreach ($produitsCommande as $produit){
+            DB::table('produitscommande')->insert(['idCommande'=>$idCommande,'idProduit'=>$produit->getIdProduit(),'quantite'=>$produit->getQuantite()]);
+        }
+
     }
 
     public function getCommande($id){

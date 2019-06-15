@@ -1,5 +1,7 @@
 <?php
 namespace App\Metier;
+use phpDocumentor\Reflection\Types\Integer;
+
 class Commande
 {
     private $idCommande;

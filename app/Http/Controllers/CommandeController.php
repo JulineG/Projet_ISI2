@@ -21,6 +21,13 @@ class CommandeController extends Controller
         }
     }
 
+    public function identification(){
+        Session::put('id', true);
+        $categorie = new AccueilDAO();
+        $lesCategories = $categorie->getLesCategories();
+        return view('identification', compact('lesCategories'));
+    }
+
     public function getInfos(){
         $commande = new CommandeDAO();
         $lesInfos = $commande->getLesInfos();
@@ -31,17 +38,21 @@ class CommandeController extends Controller
 
     public function ajoutCommande(){
         $panier = Session::get('panier');
+        $mesProduits = array();
         foreach ($panier as $produit) {
-            $produitCommande = new Commande();
-            $produitCommande->setIdProduit($produit[0]);
-            $produitCommande->setQuantite($produit[1]);
-
+            $monProduit= new Commande();
+            $monProduit->setIdProduit($produit[0]);
+            $monProduit->setQuantite($produit[1]);
+            $mesProduits[] = $monProduit;
         }
         $commande = new Commande();
         $commande->setIdClient(Auth::id());
-        $commande->setDateCommande(new Date());
+        $commande->setDateCommande(now());
         $maCommandeDAO=new CommandeDAO();
-        $maCommandeDAO->creationCommande($produitCommande,$commande);
-        return view('insertionOK');
+        $maCommandeDAO->creationCommande($mesProduits,$commande);
+        $categorie = new AccueilDAO();
+        $lesCategories = $categorie->getLesCategories();
+        Session::remove('panier');
+        return view('insertionOK', compact('lesCategories'));
     }
 }

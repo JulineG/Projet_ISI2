@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo;
+
+    public function redirection(){
+        if(Session::exists('id')){
+            Session::remove('id');
+            return 'infosCommande';
+        }
+        return '/';
+
+    }
 
     /**
      * Create a new controller instance.
@@ -35,5 +45,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->redirectTo = $this->redirection();
     }
 }
