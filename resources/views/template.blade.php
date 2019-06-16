@@ -9,11 +9,11 @@
     <title>@yield('titrePage')</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png);">
-    <div class="container">
+<nav class="navbar navbar-expand navbar-dark static-top" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png);">
+    <div class="container container-fluid">
 
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:20%;">
+            <img src="/images/logo.png" alt="Notre logo" style="width:20%;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,11 +74,11 @@
     </div>
 </nav>
 <header>
-    <div class="container">
+    <div class="container container-fluid">
         <h1>@yield('titreItem')</h1>
     </div>
 </header>
-    <div class ="container">
+    <div class ="container container-fluid">
         @yield('contenu')
         {!! Html::script('lib/jquery/jquery-3.4.1.min.js') !!}
         {!! Html::script('lib/js/bootstrap.bundle.js') !!}
@@ -88,7 +88,7 @@
 
 </body>
 <footer>
-    <div class="container">
+    <div class="container container-fluid">
         <p>Contactez-nous sur : <span class="fab fa-facebook-square"></span></p>
         <p>Suivez-nous sur : <span class="fab fa-instagram"></span></p>
     </div>

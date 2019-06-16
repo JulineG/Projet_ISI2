@@ -24,10 +24,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png)">
-            <div class="container">
+        <nav class="navbar navbar-expand shadow-sm" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png)">
+            <div class="container container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:20%;">
+                    <img src="/images/logo.png" alt="Notre logo" style="width:20%;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -81,7 +81,7 @@
     </div>
 </body>
 <footer>
-    <div class="container">
+    <div class="container container-fluid">
         <p>Contactez-nous sur : <span class="fab fa-facebook-square"></span></p>
         <p>Suivez-nous sur : <span class="fab fa-instagram"></span></p>
     </div>

@@ -11,7 +11,7 @@
 @section('contenu')
 
     @if(!empty($mesCommandes))
-        <div class="container">
+        <div class="container container-fluid">
             <div class="row">
                 @foreach($mesCommandes as $uneCommande)
                 <div class="row">
@@ -22,7 +22,7 @@
 
                             @foreach($uneCommande as $produit)
                                 <div class="row">
-                                        {{ Html::image('http://127.0.0.1/Projet_ISI2/images/'.$produit['infos']->getImage(), 'Image Produit', array('id' => 'imgPanier')) }}
+                                        {{ Html::image('/images/'.$produit['infos']->getImage(), 'Image Produit', array('id' => 'imgPanier')) }}
                                     <div class="col">
                                         <p id="nomProduit"><b>{{$produit['infos']->getNomProduit()}}</b></p>
                                         <p>{{$produit['infos']->getDescription()}}</p>
