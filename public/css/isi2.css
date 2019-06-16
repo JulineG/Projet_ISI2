@@ -1,22 +1,32 @@
- @import url(http://fr.allfont.net/allfont.css?fonts=economica);
+@import url(http://fr.allfont.net/allfont.css?fonts=economica);
 
 
 body
 {
-    background-color:#FFFBE9;
-    color:#FFA500;
-    font-family: 'Economica', arial, Times new roman;
-    font-size:15px;
-    text-align:justify;
-    margin-top: 20px;
+	background-color:#FFFBE9;
+	color:#FFA500;
+	font-family: 'Economica', arial, Times new roman;
+	font-size:15px;
+	text-align:justify;
+	margin-top: 20px;
 }
 
 .navbar {
-	 font-family: 'Economica', arial, Times new roman;
+	font-family: 'Economica', arial, Times new roman;
 }
 
 [class*="col"] {
 	margin-bottom: 20px;
+}
+
+[class*="row"] {
+	margin-bottom: 20px;
+}
+
+pre{
+	font-family: 'Economica', arial, Times new roman;
+	color:#FFA500;
+	font-size:18px;
 }
 
 img {
@@ -44,10 +54,16 @@ img {
 }
 
 .card {
-	border-color:#FFA500 !important; 
+	border-color:#FFA500 !important;
 }
 
 .card-header {
 	border-color:#FFA500 !important;
 	background-color:#FFF1E9 !important;
+}
+
+#imgPanier {
+	width: 25%;
+	height: 25%;
+	
 }
