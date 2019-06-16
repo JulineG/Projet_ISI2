@@ -13,7 +13,7 @@
     <div class="container container-fluid">
 
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="http://127.0.0.1/Projet_ISI2/images/logo.png" alt="Notre logo" style="width:20%;">
+            <img src="http://juline-et-pauline.fr/images/logo.png" alt="Notre logo" style="width:20%;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

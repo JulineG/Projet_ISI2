@@ -15,7 +15,7 @@
             <div class="row">
                 {!! Form::open(['url' => 'AjoutPanier/'.$produit->getIdProduit()]) !!}
                 <div class="col" >
-                    {{ Html::image('http://127.0.0.1/Projet_ISI2/images/'.$produit->getImage(), 'Image Produit', array('id' => 'produit')) }}
+                    {{ Html::image('http://juline-et-pauline.fr/images/'.$produit->getImage(), 'Image Produit', array('id' => 'produit')) }}
                 </div>
                 <div class="col" >
                     <p id="nomProduit"><b>{{{$produit->getNomProduit()}}}</b></p>

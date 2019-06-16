@@ -17,7 +17,7 @@
                     {!! Form::open(['url' => 'SupprimerPanier/'.$produit[0]->getIdProduit()]) !!}
                     <tr>
                         <td>
-                            {{ Html::image('http://127.0.0.1/Projet_ISI2/images/'.$produit[0]->getImage(), 'Image Produit', array('id' => 'produit')) }}
+                            {{ Html::image('http://julinr-et-pauline.fr/images/'.$produit[0]->getImage(), 'Image Produit', array('id' => 'produit')) }}
                         </td>
                         <td >
                             <p id="nomProduit"><b>{{$produit[0]->getNomProduit()}}</b></p>
