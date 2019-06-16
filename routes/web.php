@@ -27,4 +27,4 @@ Route::post('Commande', 'CommandeController@checkAuth');
 Route::get('infosCommande','CommandeController@getInfos');
 Route::get('connexion', 'CommandeController@identification');
 Route::post('ajoutCommande','CommandeController@ajoutCommande');
-
+Route::get('mesCommandes', 'CommandeController@getCommandes');

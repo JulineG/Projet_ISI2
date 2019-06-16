@@ -43,6 +43,7 @@
                             Bienvenue,  {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
+                            <a href="{{url('mesCommandes')}}">Mes commandes</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

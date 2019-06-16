@@ -12,16 +12,18 @@ class CommandeDAO extends DAO
 {
     public function creationCommande($produitsCommande, $uneCommande ){
         DB::table('commande')->insert(['idClient'=>$uneCommande->getIdClient(),'dateCommande'=>$uneCommande->getDateCommande()]);
-        $lastCommande = DB::table('commande')->orderBy('idCommande')->first();
+        $lastCommande = DB::table('commande')->orderBy('idCommande', 'desc')->first();
+
         $idCommande=$lastCommande->idCommande;
+        echo $idCommande;
         foreach ($produitsCommande as $produit){
             DB::table('produitscommande')->insert(['idCommande'=>$idCommande,'idProduit'=>$produit->getIdProduit(),'quantite'=>$produit->getQuantite()]);
         }
 
     }
 
-    public function getCommande($id){
-        $maCommande = DB::table('produitscommande')->join('commande', 'produitscommande.idCommande','=','commande.idCommande')->where('produitscommandeid','=',$id)->get();
+    public function getLesCommandes($idClient){
+        $maCommande = DB::table('produitscommande')->join('commande', 'produitscommande.idCommande','=','commande.idCommande')->where('commande.idClient','=',$idClient)->get();
         $lesProduits = array();
         foreach ($maCommande as $monProduit){
             $id = $monProduit->id;

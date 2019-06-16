@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Metier\Commande;
 use App\Modeles\AccueilDAO;
 use App\Modeles\CommandeDAO;
+use App\Modeles\ProduitDAO;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
@@ -34,6 +35,38 @@ class CommandeController extends Controller
         $categorie = new AccueilDAO();
         $lesCategories = $categorie->getLesCategories();
         return view('infosCommande', compact('lesInfos', 'lesCategories'));
+    }
+
+    public function getCommandes(){
+        $infoProduit = new ProduitDAO();
+        $commande= new CommandeDAO();
+        $lesProduits = $commande->getLesCommandes(Auth::id());
+        $mesProduits=array();
+        $idCommande=-1;
+        $prixTotal=array();
+        $i=0;
+        foreach ($lesProduits as $produit){
+            if($idCommande==$produit->getIdCommande()){
+                $mesProduits[$i]=array('commande'=>$produit,
+                    'infos'=>$infoProduit->getUnProduit($produit->getIdProduit()));
+                $prixTotal[$idCommande]+= $mesProduits[$i]['commande']->getQuantite()*$mesProduits[$i]['infos']->getPrix();
+                $i++;
+                $mesCommandes[$idCommande]=$mesProduits;
+            }else{
+                $idCommande=$produit->getIdCommande();
+                unset($mesProduits);
+                $i=0;
+                $mesProduits[$i]=array('commande'=>$produit,
+                                        'infos'=>$infoProduit->getUnProduit($produit->getIdProduit()));
+                $prixTotal[$idCommande]=0;
+                $prixTotal[$idCommande]+= $mesProduits[$i]['commande']->getQuantite()*$mesProduits[$i]['infos']->getPrix();
+                $i++;
+                $mesCommandes[$idCommande]=$mesProduits;
+            }
+        }
+        $categorie = new AccueilDAO();
+        $lesCategories = $categorie->getLesCategories();
+        return view('mesCommandes', compact('mesCommandes', 'lesCategories', 'prixTotal'));
     }
 
     public function ajoutCommande(){
