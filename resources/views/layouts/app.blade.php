@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand shadow-sm" style="background-image:url(http://127.0.0.1/Projet_ISI2/images/navbar.png)">
+        <nav class="navbar navbar-expand shadow-sm" style="background-image:url(/images/navbar.png)">
             <div class="container container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/images/logo.png" alt="Notre logo" style="width:20%;">
